@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Hospitalario</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5 0 1.93-1.57 3.5-3.5 3.5s-3.5-1.57-3.5-3.5c0-1.93 1.57-3.5 3.5-3.5zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" />
+                </svg>
+                <h1>QR Hospitalario</h1>
+            </div>
+            <div class="header-actions">
+                <button id="settingsBtn" class="icon-btn" title="Configuración">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                    </svg>
+                </button>
+                <button id="themeToggle" class="icon-btn" title="Cambiar tema">
+                    <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="qr-tab">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M3 11h8V3H3v8zm2-6h4v4H5V5zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM18 13h-2v3h-3v2h3v3h2v-3h3v-2h-3z" />
+                </svg>
+                QR Rápido
+            </button>
+            <button class="tab" data-tab="equipos-tab">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
+                </svg>
+                Equipos
+            </button>
+            <button class="tab" data-tab="historial-tab">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+                </svg>
+                Historial
+            </button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="content">
+            <!-- QR Rápido Tab -->
+            <div id="qr-tab" class="tab-content active">
+                <div class="input-group">
+                    <label>Tipo de contenido:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="qrType" value="url" checked>
+                            <span>URL</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="qrType" value="text">
+                            <span>Texto</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="qrInput">Contenido:</label>
+                    <textarea id="qrInput" placeholder="https://forms.gle/ejemplo..." rows="3"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Logo:</label>
+                    <div class="logo-selector" id="logoSelector">
+                        <!-- Se llenará dinámicamente -->
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="qrColor">Color:</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="qrColor" value="#000000">
+                        <span id="colorValue">#000000</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Imagen Representativa del Contenido (Opcional):</label>
+                    <div class="photo-capture">
+                        <div id="repImagePreview" class="photo-preview" style="height: 100px;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                                <path
+                                    d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                            </svg>
+                            <p style="font-size: 11px;">Subir o pegar imagen oficial</p>
+                        </div>
+                        <input type="file" id="repImageInput" accept="image/*" style="display: none;">
+                        <button type="button" id="selectRepImageBtn" class="btn btn-secondary full-width">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                                style="margin-right: 4px;">
+                                <path
+                                    d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 17l3.5-4.5 2.5 3.01L14.5 11l4.5 6H5z" />
+                            </svg>
+                            Seleccionar Imagen Representativa
+                        </button>
+                    </div>
+                </div>
+
+                <div class="qr-preview-container"
+                    style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div class="qr-preview" id="qrPreview">
+                        <div class="placeholder">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                                <path
+                                    d="M3 11h8V3H3v8zm2-6h4v4H5V5zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM18 13h-2v3h-3v2h3v3h2v-3h3v-2h-3z" />
+                            </svg>
+                            <p>El QR aparecerá aquí</p>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button id="generateBtn" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z" />
+                            </svg>
+                            Generar QR
+                        </button>
+                        <button id="downloadBtn" class="btn btn-secondary" disabled>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z" />
+                            </svg>
+                            Descargar
+                        </button>
+                        <button id="copyBtn" class="btn btn-secondary" disabled>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                            </svg>
+                            Copiar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Equipos Tab -->
+                <div id="equipos-tab" class="tab-content">
+                    <form id="equipoForm" class="equipo-form">
+                        <div class="input-group">
+                            <label for="equipoNombre">Nombre del equipo:</label>
+                            <input type="text" id="equipoNombre" placeholder="Ej: Bomba Fresenius Kabi Agilia" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="equipoCategoria">Categoría:</label>
+                            <select id="equipoCategoria" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="infusion">Infusión</option>
+                                <option value="ventilacion">Ventilación</option>
+                                <option value="nebulizacion">Nebulización</option>
+                                <option value="monitoreo">Monitoreo</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Foto de etiqueta:</label>
+                            <div class="photo-capture">
+                                <div id="photoPreview" class="photo-preview">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                                        <path
+                                            d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                    </svg>
+                                    <p>Sin foto</p>
+                                </div>
+                                <div class="photo-actions">
+                                    <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                                    <button type="button" id="uploadPhotoBtn" class="btn btn-secondary">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 17l3.5-4.5 2.5 3.01L14.5 11l4.5 6H5z" />
+                                        </svg>
+                                        Subir Imagen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="equipoUso">Descripción de uso:</label>
+                            <textarea id="equipoUso" rows="3"
+                                placeholder="Ej: Administración controlada de medicamentos IV"></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="equipoFuncionamiento">Funcionamiento:</label>
+                            <textarea id="equipoFuncionamiento" rows="3"
+                                placeholder="Pasos de operación, precauciones..."></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="equipoUbicacion">Ubicación/Servicio:</label>
+                            <input type="text" id="equipoUbicacion" placeholder="Ej: UCO - Piso 3 - Sala 302">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary full-width">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z" />
+                            </svg>
+                            Guardar y Generar QR
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Historial Tab -->
+                <div id="historial-tab" class="tab-content">
+                    <div class="historial-header">
+                        <input type="search" id="searchEquipos" placeholder="Buscar equipos..." class="search-input">
+                        <select id="filterCategoria" class="filter-select">
+                            <option value="">Todas las categorías</option>
+                            <option value="infusion">Infusión</option>
+                            <option value="ventilacion">Ventilación</option>
+                            <option value="nebulizacion">Nebulización</option>
+                            <option value="monitoreo">Monitoreo</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-value" id="statTotal">0</div>
+                            <div class="stat-label">Total Equipos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="statToday">0</div>
+                            <div class="stat-label">Registros Hoy</div>
+                        </div>
+                    </div>
+
+                    <div id="equiposList" class="equipos-list">
+                        <div class="empty-state">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
+                            </svg>
+                            <p>No hay equipos registrados</p>
+                            <button id="goToEquiposBtn" class="btn btn-secondary">
+                                Registrar Primer Equipo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button id="exportCsvBtn" class="btn btn-secondary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                            </svg>
+                            Exportar CSV
+                        </button>
+                        <button id="exportJsonBtn" class="btn btn-secondary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                            </svg>
+                            Exportar JSON
+                        </button>
+                    </div>
+                </div>
+        </main>
+    </div>
+
+    <script src="../libs/qrcode.min.js"></script>
+    <script src="../database/equipos.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
