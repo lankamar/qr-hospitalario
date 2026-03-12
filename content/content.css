@@ -1,0 +1,48 @@
+/* ===== Content Script Styles ===== */
+/* Botón flotante para formularios */
+
+#qr-hospitalario-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999999;
+}
+
+#qr-hospitalario-fab:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.6);
+}
+
+#qr-hospitalario-fab svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Tooltip simple */
+#qr-hospitalario-fab::before {
+    content: attr(title);
+    position: absolute;
+    right: 70px;
+    padding: 8px 12px;
+    background: #1e293b;
+    color: white;
+    font-size: 13px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+#qr-hospitalario-fab:hover::before {
+    opacity: 1;
+}
