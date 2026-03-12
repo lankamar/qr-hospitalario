@@ -1,6 +1,6 @@
-# QR Hospitalario - Extensión de Navegador
+# QR Hospitalario - Extensión Avanzada
 
-**Versión:** 1.0.0  
+**Versión:** 1.5.0  
 **Autor:** Lankamar (Enfermería + Tech)  
 **Licencia:** MIT
 
@@ -8,127 +8,48 @@
 
 ## 📋 Descripción
 
-**QR Hospitalario** es una extensión de navegador diseñada específicamente para el sector de salud que permite:
+**QR Hospitalario** es una extensión de navegador de uso profesional. Diseñada inicialmente para el sector salud, su potente motor dual permite a cualquier educador, coordinador o profesional generar códigos QR de altísima calidad, integrando imágenes de forma inteligente (respetando la corrección de errores) o de forma artística (como fondo de los módulos).
 
-- 🔲 Generar códigos QR personalizados con logos
-- 🏥 Registrar equipos médicos con inventario digital
-- 📸 Capturar fotos de etiquetas de equipos
-- 📊 Gestión de activos hospitalarios por servicio
-- 🎨 Personalización premium con logos médicos
+- 🔲 Generador Híbrido: Modo Pro (vectorial seguro) y Modo Artístico (estético)
+- 💾 Historial Inteligente de configuraciones guardadas localmente
+- 🎨 Personalización premium con colores, formas de puntos y de anclajes
+- 📥 Descarga instantánea en PNG o SVG (vector puro)
 
 ---
 
 ## ✨ Características Principales
 
-### Generación de QR
-- QR desde URLs o texto plano
-- Personalización con logos (hospital, equipos médicos, alertas)
-- Selector de colores para branding institucional
-- Niveles de corrección de errores configurables
-- Vista previa en tiempo real
+### Motor de Generación Dual
+- **Modo Pro (Seguro):** Utiliza un mapa de módulos avanzado que hace espacio (clear zone) para tu logo en el centro. Permite descargas SVG y máxima fidelidad de lectura.
+- **Modo Artístico (Creativo):** La imagen que subas se coloca como fondo y los módulos del QR ajustan su opacidad e integración sobre la misma. 
 
-### Registro de Equipos Médicos
-- **Catalogación completa:** Bombas de infusión, nebulizadores, ventiladores, monitores
-- **Captura de fotos:** Documentar etiquetas de serie y características
-- **Información técnica:** Uso, funcionamiento, ubicación por servicio
-- **Almacenamiento local:** Sin necesidad de conexión a internet
+### Historial y Reutilización
+- **Guardado Automático:** Cada QR que crees puede ser guardado con un **Título o Nota** (ej. "Curso RCP Marzo").
+- **Recarga Instantánea:** Al hacer clic en "Reutilizar" en el historial, la extensión recarga por completo tu texto, colores, forma de puntos y ¡hasta el logo que habías subido!
+- Todo se almacena localmente en la base de datos segura del navegador (IndexedDB), sin necesidad de internet.
 
-### Integración con Formularios
-- Detección automática de Google Forms, Typeform, Microsoft Forms
-- Botón flotante para generación rápida
-- Compatible con formularios HTML estándar
-
-### Menú Contextual
-- Click derecho para generar QR desde cualquier enlace
-- Generar QR del texto seleccionado
-- Acceso rápido a registro de equipos
+### Personalización Vectorial
+- Formas de Puntos (Cuadrados, Circulares, Redondeados, Clásicos)
+- Formas de Anclaje (Punto o Cuadrado)
+- Color picker exacto
+- Escala y opacidad para el modo artístico
 
 ---
 
-## 🚀 Instalación
+## 🚀 Instalación 
 
-### Chrome/Edge/Brave/Opera/Vivaldi
-
-1. Descarga o clona este repositorio
-2. Abre `chrome://extensions/` (o `edge://extensions/`)
-3. Activa "Modo de desarrollador"
-4. Click en "Cargar extensión sin empaquetar"
-5. Selecciona la carpeta `extension_qr`
-
-### Firefox
-
-1. Descarga o clona este repositorio
-2. Abre `about:debugging#/runtime/this-firefox`
-3. Click en "Cargar complemento temporal"
-4. Selecciona el archivo `manifest.json` dentro de `extension_qr`
+Revisa el archivo `INSTALL.md` para ver los pasos detallados de instalación para tu equipo o para enviarlo a compañeros.
 
 ---
 
 ## 📖 Uso Rápido
 
-### Generar QR de un Formulario
-
-1. Abre un Google Form o cualquier formulario web
-2. Verás aparecer un botón flotante 🔲 en la esquina
-3. Click → Extensión se abre con QR ya generado
-4. Selecciona logo (opcional)
-5. Descarga o copia al portapapeles
-
-### Registrar Equipo Médico
-
-1. Click en el icono de la extensión
-2. Ve al tab "Equipos Médicos"
-3. Completa el formulario:
-   - Nombre del equipo
-   - Categoría (Infusión, Ventilación, etc.)
-   - Captura foto de la etiqueta
-   - Descripción de uso y funcionamiento
-   - Ubicación/servicio
-4. Click "Guardar y Generar QR"
-5. El QR se genera automáticamente con el logo sugerido
-6. Descarga para imprimir y pegar en el equipo
-
-### Desde Menú Contextual
-
-- **Click derecho en un enlace** → "Generar QR de esta URL"
-- **Selecciona texto** → Click derecho → "Generar QR del texto"
-
----
-
-## 🎨 Logos Disponibles
-
-La extensión incluye iconos SVG optimizados para:
-
-- 🏥 Hospital (cruz médica)
-- 💉 Bomba de infusión
-- 🫁 Nebulizador
-- 🌬️ Ventilador
-- 📊 Monitor de signos vitales
-- ⚠️ Alerta médica
-- ➕ Opción para subir logo personalizado
-
----
-
-## 📂 Gestión de Inventario
-
-### Exportar Datos
-
-Desde el tab "Historial":
-- **Exportar CSV:** Para Excel o Google Sheets
-- **Exportar JSON:** Backup completo de equipos
-
-### Búsqueda y Filtros
-
-- Buscar por nombre de equipo
-- Filtrar por categoría
-- Filtrar por ubicación/servicio
-- Ordenar por fecha de registro
-
-### Estadísticas
-
-- Total de equipos registrados
-- Distribución por servicio
-- Equipos más recientes
+1. Abre la extensión haciendo clic en el ícono de la cruz médica oscura en tu navegador.
+2. Pega un enlace (Google Forms, asistencia, documentos) en el campo "Contenido".
+3. **(Opcional):** Elige tus colores institucionales y la forma de los puntos.
+4. **(Opcional):** Sube o *pega (Ctrl+V)* el logo de la organización. Ajusta si lo quieres como logo central (Pro) o fondo (Artístico).
+5. Haz clic en el botón de Guardar Configuración en el Historial si vas a repetirlo a futuro.
+6. Descárgalo en PNG o cópialo al portapapeles.
 
 ---
 
@@ -136,82 +57,26 @@ Desde el tab "Historial":
 
 | Componente | Tecnología |
 |-----------|------------|
-| Generador QR | qrcode.js (vanilla) |
+| Motor Pro | qr-code-styling (Canvas/SVG) |
+| Motor Artístico | easy.qrcode (Canvas) |
 | Base de datos | IndexedDB (nativa) |
 | UI Framework | Vanilla JS |
 | Estilos | CSS3 (Glassmorphism) |
-| Iconografía | SVG custom |
 
-**Sin dependencias externas pesadas** → Extensión ligera y rápida
-
----
-
-## 🏗️ Estructura del Proyecto
-
-```
-extension_qr/
-├── manifest.json              # Configuración multi-navegador
-├── popup/
-│   ├── popup.html            # Interfaz principal
-│   ├── popup.css             # Estilos premium
-│   └── popup.js              # Lógica de generación QR
-├── background/
-│   └── background.js         # Service worker + menú contextual
-├── content/
-│   └── content.js            # Detección de formularios
-├── assets/
-│   ├── icons/                # Logos SVG
-│   └── images/               # Assets UI
-├── libs/
-│   └── qrcode.min.js         # Biblioteca QR
-├── database/
-│   └── equipos.js            # Handler de IndexedDB
-└── docs/
-    ├── PRD.md                # Product Requirements Document
-    └── USER_GUIDE.md         # Guía de usuario detallada
-```
-
----
-
-## 🎯 Casos de Uso
-
-### 1. Enfermería - Control de Equipos
-Registrar todas las bombas de infusión del servicio de UCO con QR en cada equipo. Al escanear el QR, acceder a manual de uso y última calibración.
-
-### 2. Gestión Hospitalaria
-Crear inventario digital de nebulizadores, ventiladores y monitores con ubicación por piso y sala.
-
-### 3. Capacitación
-Generar QR para formularios de evaluación de competencias en manejo de equipos médicos.
-
-### 4. Mantenimiento Biomédico
-QR codes en equipos críticos que redireccionen a historial de mantenimientos y protocolos de reparación.
+**Sin dependencias externas conectadas a internet** → Totalmente privada y offline.
 
 ---
 
 ## 🔒 Privacidad y Seguridad
 
-- ✅ **Datos locales:** Todo se almacena en IndexedDB del navegador
-- ✅ **Sin conexión a internet:** Funciona 100% offline
-- ✅ **Sin tracking:** No se envían datos a servidores externos
-- ✅ **Sin permisos invasivos:** Solo acceso a tabs activos y almacenamiento local
-
----
-
-## 🤝 Contribuciones
-
-Este proyecto está abierto a contribuciones. Áreas prioritarias:
-
-- [ ] Integración con sistemas HCIS (Hospital Clinical Information System)
-- [ ] Sincronización en la nube opcional
-- [ ] Versión móvil (PWA)
-- [ ] Soporte para códigos de barras (además de QR)
+- ✅ **Datos locales:** Tu historial y logos subidos se almacenan en tu propia máquina (IndexedDB).
+- ✅ **Sin tracking:** No recolectamos información ni enlaces generados.
 
 ---
 
 ## 📄 Licencia
 
-MIT License - Uso libre para instituciones hospitalarias y educativas.
+MIT License - Uso libre.
 
 ---
 
@@ -219,15 +84,7 @@ MIT License - Uso libre para instituciones hospitalarias y educativas.
 
 **Lankamar**  
 Enfermero especializado en gestión + Desarrollador  
-Universidad de Buenos Aires (UBA)
-
-**Contacto:** [GitHub/LinkedIn]
-
----
-
-## 🙏 Agradecimientos
-
-- Equipo de Enfermería de UCO por feedback en requisitos
+Universidad de Buenos Aires (UBA)equisitos
 - Comunidad open-source de qrcode.js
 - Testing realizado en entorno hospitalario real
 
